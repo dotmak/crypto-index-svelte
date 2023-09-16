@@ -5,7 +5,6 @@ export async function load({ params }) {
 		).then((res) => res.json());
 
 	return {
-		maxage: 3600,
-		cryptos:await res.data
+		cryptos: await res.data
 	};
 }

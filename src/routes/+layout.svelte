@@ -9,7 +9,9 @@
 			<Header />
 
 			<main>
-				<slot />
+				<div class="main-wrapper">
+					<slot />
+				</div>
 			</main>
 		
 			<footer>
