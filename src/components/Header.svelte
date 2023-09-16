@@ -7,7 +7,7 @@
     <div class="flex flex-row justify-between items-center mx-auto py-4">
       <div class="site-logo">
         <a href="/">
-          <img src={imgUrl} alt="Crypto index logo" class="w-[50px]" />
+          <img src={imgUrl} alt="Crypto index logo" class="w-[50px]" loading="lazy" />
         </a>
       </div>
 

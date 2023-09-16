@@ -4,7 +4,7 @@
 </script>
 
 <div class="app">
-	<div class="app-wrapper bg-[#08060B]  min-h-screen">
+	<div class="app-wrapper gradient min-h-screen">
 		<div class="container max-w-[1600px] mx-auto">
 			<Header />
 
