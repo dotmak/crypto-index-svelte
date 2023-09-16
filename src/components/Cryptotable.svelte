@@ -31,7 +31,7 @@
         <tr key={crypto.rank}>
           <td class="p-3">{crypto.rank}</td>
           <td>{crypto.symbol}</td>
-          <td><a href="/coin/{crypto.symbol}" data={cryptos}>{crypto.name}</a></td>
+          <td><a href="/coin/{crypto.id}">{crypto.name}</a></td>
           <td>{(Math.round(crypto.priceUsd * 100) / 100).toFixed(2)}$</td>
           <td
             class={"p-3 " +

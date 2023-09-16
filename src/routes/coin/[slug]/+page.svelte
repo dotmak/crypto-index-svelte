@@ -2,6 +2,7 @@
 	export let data;
 </script>
 
-<div class="text-white">
+<div class="crypto-page-wrapper">
   coin: {data.cryptos.id}
+  {data.cryptos.rank}
 </div>
