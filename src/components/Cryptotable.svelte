@@ -1,15 +1,15 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
 
   let cryptos = [];
 
-	onMount(async () => {
-		let res = await fetch('https://api.coincap.io/v2/assets?bearer=3b51de28-9748-4366-ad23-1ced7213ec89')
-    .then(res => res.json())
+  onMount(async () => {
+    let res = await fetch(
+      "https://api.coincap.io/v2/assets?bearer=3b51de28-9748-4366-ad23-1ced7213ec89"
+    ).then((res) => res.json());
 
-    cryptos = await res.data
-	});
-
+    cryptos = await res.data;
+  });
 </script>
 
 <div class="crypto-table bg-[#372F46] rounded-[20px] p-4">
@@ -28,32 +28,30 @@
     </thead>
     <tbody>
       {#each cryptos as crypto, i}
-      <tr key={crypto.rank}>
-        <td class="p-3">{crypto.rank}</td>
-        <td>{crypto.symbol}</td>
-        <td>{crypto.name}</td>
-        <td>{(Math.round(crypto.priceUsd * 100) / 100).toFixed(2)}$</td>
-        <td
-          class={
-            "p-3 " +
-            (crypto.changePercent24Hr > 0
-              ? "text-green-600"
-              : "text-red-600")
-          }
-        >
-        {(Math.round(crypto.changePercent24Hr * 100) / 100).toFixed(2)}%
-      </td>
-      <td class="p-3">
-        {(Math.round(crypto.marketCapUsd * 100) / 100).toFixed(2)}
-      </td>
-      <td class="p-3">
-        {(Math.round(crypto.supply * 100) / 100).toFixed(2)}
-      </td>
-      <td class="p-3">{crypto.maxSupply}</td>
-      </tr>
+        <tr key={crypto.rank}>
+          <td class="p-3">{crypto.rank}</td>
+          <td>{crypto.symbol}</td>
+          <td><a href="/coin/{crypto.symbol}" data={cryptos}>{crypto.name}</a></td>
+          <td>{(Math.round(crypto.priceUsd * 100) / 100).toFixed(2)}$</td>
+          <td
+            class={"p-3 " +
+              (crypto.changePercent24Hr > 0
+                ? "text-green-600"
+                : "text-red-600")}
+          >
+            {(Math.round(crypto.changePercent24Hr * 100) / 100).toFixed(2)}%
+          </td>
+          <td class="p-3">
+            {(Math.round(crypto.marketCapUsd * 100) / 100).toFixed(2)}
+          </td>
+          <td class="p-3">
+            {(Math.round(crypto.supply * 100) / 100).toFixed(2)}
+          </td>
+          <td class="p-3">{crypto.maxSupply}</td>
+        </tr>
       {:else}
-      <!-- this block renders when photos.length === 0 -->
-      <p>loading...</p>
+        <!-- this block renders when cryptos.length === 0 -->
+        <p>Loading data</p>
       {/each}
     </tbody>
   </table>
