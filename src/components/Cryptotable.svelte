@@ -12,7 +12,7 @@
   });
 </script>
 
-<div class="crypto-table bg-[#3d3d3d62] rounded-[20px] p-4">
+<div class="crypto-table bg-[#3d3d3d62] rounded-[20px] p-4 my-4">
   <table class="table-auto text-center w-full">
     <thead class="border-t-[1px] border-b-[1px] border-black">
       <tr>
